@@ -313,6 +313,13 @@
       padding: 8px 9px;
     }
 
+    .issue-button.page-link {
+      text-decoration: none;
+      background: var(--red);
+      color: #fff8dd;
+      border-color: #f0c263;
+    }
+
     .issue-button::before {
       content: "";
       width: 24px;
@@ -1461,6 +1468,11 @@
 
     function renderIssues() {
       issueReel.innerHTML = "";
+      const meetLink = document.createElement("a");
+      meetLink.className = "issue-button page-link";
+      meetLink.href = "meet-the-league.html";
+      meetLink.innerHTML = `<span class="issue-button-copy"><strong>Meet the League</strong><small>League cast guide</small></span>`;
+      issueReel.appendChild(meetLink);
       issueTimeline.forEach((entry) => {
         const issue = getIssueById(entry.id);
         const button = document.createElement("button");

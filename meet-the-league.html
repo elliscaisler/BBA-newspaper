@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BBA Underground Pressroom | Meet the League</title>
+  <style>
+    :root {
+      --ink: #17130f;
+      --ink-soft: #3e352a;
+      --paper: #f1e1bd;
+      --paper-bright: #fff7df;
+      --paper-dim: #d8c49a;
+      --newsprint: #eadbb8;
+      --red: #b3261e;
+      --red-dark: #711611;
+      --blue: #0d4d66;
+      --cyan: #2f9aa0;
+      --green: #285c39;
+      --gold: #bb8525;
+      --violet: #5c4773;
+      --steel: #35383a;
+      --serif: Georgia, "Times New Roman", Times, serif;
+      --sans: "Arial Narrow", "Franklin Gothic Medium", Arial, sans-serif;
+      --mono: "Courier New", Courier, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 18%, rgba(179, 38, 30, 0.14), transparent 18rem),
+        radial-gradient(circle at 88% 14%, rgba(13, 77, 102, 0.16), transparent 16rem),
+        repeating-linear-gradient(0deg, rgba(23, 19, 15, 0.035) 0 1px, transparent 1px 4px),
+        linear-gradient(135deg, #d1b77e 0%, var(--paper) 42%, #b99d64 100%);
+      font-family: var(--sans);
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1240px, calc(100vw - 28px));
+      margin: 0 auto;
+      padding: 18px 0 42px;
+    }
+
+    .press-shell {
+      border: 4px solid var(--ink);
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.2), transparent 24%, transparent 72%, rgba(0,0,0,0.1)),
+        var(--paper);
+      box-shadow: 0 18px 42px rgba(23, 19, 15, 0.34);
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: end;
+      padding: 18px;
+      border-bottom: 4px solid var(--ink);
+      background:
+        repeating-linear-gradient(90deg, rgba(23, 19, 15, 0.08) 0 1px, transparent 1px 18px),
+        rgba(255, 247, 223, 0.72);
+    }
+
+    .brand-lockup {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 3px;
+      padding: 10px 12px 9px;
+      border: 3px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper-bright);
+      text-transform: uppercase;
+      line-height: 0.96;
+      box-shadow: 6px 6px 0 var(--gold);
+    }
+
+    .brand-lockup .kicker {
+      color: #f0c263;
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+    }
+
+    .brand-lockup strong {
+      font-family: var(--serif);
+      font-size: clamp(2.1rem, 6vw, 5.1rem);
+      font-weight: 900;
+    }
+
+    .issue-meta {
+      display: grid;
+      gap: 7px;
+      min-width: 220px;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .issue-meta span {
+      display: inline-block;
+      border: 2px solid var(--ink);
+      padding: 5px 8px;
+      background: var(--paper-bright);
+    }
+
+    .issue-meta a {
+      display: inline-block;
+      border: 2px solid var(--ink);
+      padding: 5px 8px;
+      background: var(--ink);
+      color: var(--paper-bright);
+      text-decoration: none;
+    }
+
+    .issue-meta a:hover,
+    .issue-meta a:focus-visible {
+      background: var(--red);
+    }
+
+    .ticker {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      border-bottom: 4px solid var(--ink);
+      background: #111;
+      color: #f7e7b7;
+      overflow: hidden;
+    }
+
+    .ticker-label {
+      padding: 9px 12px;
+      background: var(--red);
+      color: #fff8dd;
+      font-family: var(--mono);
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .ticker-track {
+      display: flex;
+      align-items: center;
+      min-height: 36px;
+      white-space: nowrap;
+      font-family: var(--mono);
+      font-size: 0.92rem;
+      overflow: hidden;
+    }
+
+    .ticker-track span {
+      display: inline-block;
+      padding-left: 18px;
+      animation: ticker-slide 34s linear infinite;
+    }
+
+    @keyframes ticker-slide {
+      from { transform: translateX(0); }
+      to { transform: translateX(-42%); }
+    }
+
+    .lead-story {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 270px;
+      gap: 18px;
+      padding: 20px 18px 10px;
+    }
+
+    .headline-lab {
+      position: relative;
+      min-height: 270px;
+      border: 4px solid var(--ink);
+      padding: 18px;
+      background:
+        repeating-linear-gradient(0deg, rgba(23, 19, 15, 0.04) 0 1px, transparent 1px 8px),
+        var(--paper-bright);
+    }
+
+    .source-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 12px;
+      padding: 6px 8px;
+      border: 2px solid var(--ink);
+      background: var(--gold);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 15ch;
+      font-family: var(--serif);
+      font-size: clamp(3.4rem, 10vw, 7.8rem);
+      line-height: 0.8;
+      text-transform: uppercase;
+    }
+
+    .dek {
+      max-width: 760px;
+      margin: 16px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 2vw, 1.7rem);
+      line-height: 1.12;
+      color: var(--ink-soft);
+    }
+
+    .proof-box {
+      display: grid;
+      align-self: start;
+      border: 4px solid var(--ink);
+      background: #151515;
+      color: #fff4cf;
+      box-shadow: 6px 6px 0 var(--red);
+    }
+
+    .proof-box h2 {
+      margin: 0;
+      padding: 10px 12px;
+      border-bottom: 2px solid #f0c263;
+      color: #f0c263;
+      font-family: var(--mono);
+      font-size: 0.92rem;
+      text-transform: uppercase;
+    }
+
+    .proof-box ul {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 13px 14px 16px 28px;
+      font-family: var(--mono);
+      font-size: 0.86rem;
+      line-height: 1.25;
+    }
+
+    .press-layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 18px;
+      padding: 12px 18px 22px;
+    }
+
+    .microfilm {
+      border: 3px solid #090908;
+      background: #151515;
+      color: #fff4cf;
+      min-height: 440px;
+    }
+
+    .microfilm h2 {
+      margin: 0;
+      padding: 12px;
+      border-bottom: 3px solid #090908;
+      color: #f0c263;
+      font-family: var(--mono);
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+
+    .reel-list {
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .reel {
+      border: 2px solid #111;
+      padding: 10px;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0 7px, transparent 7px 14px),
+        #242424;
+      color: #fff4cf;
+    }
+
+    .reel b {
+      display: block;
+      color: #f0c263;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    .reel span {
+      display: block;
+      margin-top: 4px;
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      line-height: 1.05;
+    }
+
+    .dossier-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .dossier {
+      position: relative;
+      min-height: 210px;
+      border: 3px solid var(--ink);
+      padding: 13px 13px 48px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.34), transparent 34%),
+        var(--paper-bright);
+      box-shadow: 5px 5px 0 rgba(23, 19, 15, 0.24);
+    }
+
+    .dossier:nth-child(4n + 2) {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.26), transparent 36%),
+        #f9edc8;
+    }
+
+    .dossier:nth-child(4n + 3) {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.24), transparent 36%),
+        #eadfc6;
+    }
+
+    .dossier:nth-child(4n) {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.24), transparent 36%),
+        #fff5d9;
+    }
+
+    .rank {
+      display: inline-flex;
+      margin-bottom: 8px;
+      padding: 4px 7px;
+      border: 2px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper-bright);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .dossier h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 2.3vw, 2rem);
+      line-height: 0.92;
+      text-transform: uppercase;
+    }
+
+    .role {
+      display: block;
+      margin-top: 8px;
+      color: var(--red-dark);
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .one-liner {
+      margin: 12px 0 0;
+      font-family: var(--serif);
+      font-size: 1.03rem;
+      line-height: 1.18;
+      color: var(--ink-soft);
+    }
+
+    .article-stamp {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      transform: rotate(-3deg);
+      border: 2px solid var(--red);
+      padding: 5px 8px;
+      color: var(--red);
+      background: rgba(255, 247, 223, 0.5);
+      font-family: var(--mono);
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .footer-note {
+      margin: 0 18px 18px;
+      border: 3px solid var(--ink);
+      padding: 12px;
+      background: rgba(255, 247, 223, 0.86);
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      line-height: 1.35;
+    }
+
+    @media (max-width: 920px) {
+      .masthead,
+      .lead-story,
+      .press-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .issue-meta {
+        text-align: left;
+      }
+
+      .dossier-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100vw - 16px, 1240px);
+        padding-top: 8px;
+      }
+
+      .dossier-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ticker {
+        grid-template-columns: 1fr;
+      }
+
+      .ticker-track span {
+        animation: none;
+        white-space: normal;
+        padding: 10px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="press-shell" aria-labelledby="pageTitle">
+      <header class="masthead">
+        <div class="brand-lockup" aria-label="Breton Basement Association Underground Pressroom">
+          <span class="kicker">Breton Basement Association</span>
+          <strong>Underground Pressroom</strong>
+        </div>
+        <div class="issue-meta" aria-label="Issue metadata">
+          <a href="index.html">Back To First Edition</a>
+          <span>Meet The League</span>
+          <span>Discord Archive: 4,754 Msgs</span>
+        </div>
+      </header>
+
+      <div class="ticker" aria-label="Pressroom wire ticker">
+        <div class="ticker-label">Bulletin</div>
+        <div class="ticker-track">
+          <span>Current active-league board / raw chat stays private / roles are evidence-backed color copy, not courthouse testimony / Tuesday issue desk now has a fresh source feed</span>
+        </div>
+      </div>
+
+      <section class="lead-story">
+        <div class="headline-lab">
+          <span class="source-label">Filed from the Superlatives Bureau</span>
+          <h1 id="pageTitle">Meet The League</h1>
+          <p class="dek">The League Gets Typecast.</p>
+          <p class="dek">A newsroom-ready role board for the current BBA cast: twelve active personalities, one private archive, and just enough evidence to make everyone uncomfortable at the draft.</p>
+        </div>
+        <aside class="proof-box" aria-label="Evidence summary">
+          <h2>Evidence Reel</h2>
+          <ul>
+            <li>4,754 messages cached locally.</li>
+            <li>5 approved Discord channels synced.</li>
+            <li>12 active roster voices included.</li>
+            <li>Bot/system entry excluded.</li>
+            <li>Raw logs remain private source material.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="press-layout">
+        <aside class="microfilm" aria-label="Archive reels">
+          <h2>Microfilm Notes</h2>
+          <div class="reel-list">
+            <div class="reel">
+              <b>Primary Signal</b>
+              <span>Chat behavior, volume, channel mix, and recurring league functions.</span>
+            </div>
+            <div class="reel">
+              <b>Roster Scope</b>
+              <span>Current league members only; former members are left out of the board.</span>
+            </div>
+            <div class="reel">
+              <b>Copy Rule</b>
+              <span>Punchy enough for the paper, grounded enough to survive the group chat.</span>
+            </div>
+          </div>
+        </aside>
+
+        <section class="dossier-grid" aria-label="Current league superlatives">
+          <article class="dossier">
+            <span class="rank">File 01</span>
+            <h3>LanezC</h3>
+            <span class="role">The Commissioner With A Flamethrower</span>
+            <p class="one-liner">Runs the room, keeps the machinery moving, and somehow turns administration into live ammunition.</p>
+            <span class="article-stamp">Lead Voice</span>
+          </article>
+
+          <article class="dossier">
+            <span class="rank">File 02</span>
+            <h3>md</h3>
+            <span class="role">The Spreadsheet Producer</span>
+            <p class="one-liner">If the chat is a bar fight, he is the guy quietly building the shared doc that decides who won.</p>
+            <span class="article-stamp">Ops Desk</span>
+          </article>
+
+          <article class="dossier">
+            <span class="rank">File 03</span>
+            <h3>Kark</h3>
+            <span class="role">The One-Line Provocateur</span>
+            <p class="one-liner">Uses fewer words than everyone else and still manages to change the temperature of the room.</p>
+            <span class="article-stamp">Spark Plug</span>
+          </article>
+
+          <article class="dossier">
+            <span class="rank">File 04</span>
+            <h3>theboots1000</h3>
+            <span class="role">The Volume Knob</span>
+            <p class="one-liner">When the chat needs to get louder, dumber, or suddenly unsafe for screenshots, he knows where the dial is.</p>
+            <span class="article-stamp">Noise Desk</span>
+          </article>
+
+          <article class="dossier">
+            <span class="rank">File 05</span>
+            <h3>e77van</h3>
+            <span class="role">The Bit Craftsman</span>
+            <p class="one-liner">Does not just react to the bit; he sands it down, rebrands it, and ships the version everyone repeats.</p>
+            <span class="article-stamp">Copy Chief</span>
+          </article>
+
+          <article class="dossier">
+            <span class="rank">File 06</span>
+            <h3>m@</h3>
+            <span class="role">The Clock Tapper</span>
+            <p class="one-liner">Keeps the draft breathing with quick picks, clock nudges, and the energy of a man refusing to let the group chat die.</p>
+            <span class="article-stamp">Pace Car</span>
+          </article>
+
+          <article class="dossier">
+            <span class="rank">File 07</span>
+            <h3>Pete.Tollis</h3>
+            <span class="role">The Popcorn Instigator</span>
+            <p class="one-liner">Shows up with just enough fuel to make the next five messages worse for everyone and better for the paper.</p>
+            <span class="article-stamp">Accelerant</span>
+          </article>
+
+          <article class="dossier">
+            <span class="rank">File 08</span>
+            <h3>John S</h3>
+            <span class="role">The Draft Clock Litigator</span>
+            <p class="one-liner">When the room gets stuck on who is picking, when it starts, or whether the clock is real, John turns it into a case file.</p>
+            <span class="article-stamp">Clock Court</span>
+          </article>
+
+          <article class="dossier">
+            <span class="rank">File 09</span>
+            <h3>Citron</h3>
+            <span class="role">The Due-Diligence Guy</span>
+            <p class="one-liner">Asks for time, studies the board, and makes every pick feel like it passed through a tiny front office.</p>
+            <span class="article-stamp">Research Desk</span>
+          </article>
+
+          <article class="dossier">
+            <span class="rank">File 10</span>
+            <h3>leesieradzky</h3>
+            <span class="role">The Logistics Realist</span>
+            <p class="one-liner">Quiet until the room needs the actual rules, actual timing, or someone to admit nobody read the assignment.</p>
+            <span class="article-stamp">Ground Truth</span>
+          </article>
+
+          <article class="dossier">
+            <span class="rank">File 11</span>
+            <h3>jbhimelson</h3>
+            <span class="role">The Drive-By Color Commentator</span>
+            <p class="one-liner">Low volume, high usefulness: a sideline reaction here, a "what just happened" there, then back into the mist.</p>
+            <span class="article-stamp">Color Desk</span>
+          </article>
+
+          <article class="dossier">
+            <span class="rank">File 12</span>
+            <h3>briankeane</h3>
+            <span class="role">The Minimalist Confessor</span>
+            <p class="one-liner">Says less than everyone else, but when he appears it is usually a pick, a status report, or a confession from the fog.</p>
+            <span class="article-stamp">Sparse Copy</span>
+          </article>
+        </section>
+      </section>
+
+      <p class="footer-note">Published league-cast guide. Keep the raw Discord archive private; the public page uses only superlatives and one-liners.</p>
+    </section>
+  </main>
+</body>
+</html>
