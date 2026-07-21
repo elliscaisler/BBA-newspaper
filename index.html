@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BBA Underground Pressroom</title>
   <meta name="description" content="Interactive fantasy football tabloid newspaper for the Breton Basement Association.">
+  <link rel="icon" href="data:,">
   <style>
     :root {
       --ink: #17130f;
@@ -460,6 +461,10 @@
       overflow-wrap: anywhere;
     }
 
+    .paper-feed span:empty {
+      display: none;
+    }
+
     .bulb-row {
       position: absolute;
       left: 18px;
@@ -804,6 +809,10 @@
     .court-log button.active {
       background: var(--blue);
       color: #fff7df;
+    }
+
+    .chalk-control {
+      margin: 10px 0;
     }
 
     .quote-strip {
@@ -1200,8 +1209,8 @@
               <div class="roller top"></div>
               <div class="roller bottom"></div>
               <div class="paper-feed">
-                <strong id="feedHeadline">The Basement Bugle</strong>
-                <span id="feedMeta">Posted periodically in the offseason and weekly during the season.</span>
+                <strong id="feedHeadline">Introducing The Basement Bugle</strong>
+                <span id="feedMeta"></span>
               </div>
               <div class="bulb-row">
                 <i class="bulb on"></i>
@@ -1243,6 +1252,10 @@
                     <p class="story-body" id="leadBody">John Sefcik's format gave the league a choice. The league responded by taking exactly the slot attached to its Open finish. Democracy was observed; innovation was not.</p>
                   </section>
                   <div class="article-grid" id="articleGrid"></div>
+                  <section class="bureau-box chalk-control">
+                    <h2>Press Motions</h2>
+                    <div class="box-body court-log" id="motionList"></div>
+                  </section>
                   <section class="telestrator" aria-labelledby="teleTitle">
                     <div class="telestrator-head">
                       <span id="teleTitle">Slot Draft Chalkboard</span>
@@ -1274,10 +1287,6 @@
                       <span id="jsefcikLine">A light jab slot exists. The desk will not build a shrine.</span>
                       <small>One light jab per issue. This one earned placement.</small>
                     </div>
-                  </section>
-                  <section class="bureau-box">
-                    <h2>Press Motions</h2>
-                    <div class="box-body court-log" id="motionList"></div>
                   </section>
                 </aside>
               </div>
@@ -1314,8 +1323,8 @@
         source: "Filed from the Open order, keeper board, Dello rules, league notes",
         headline: "Sefcik Wins The Golf Slot Machine And Somehow Makes The Obvious Take Longer",
         dek: "The BBA used The Open to set draft-slot priority, then held a slot draft that apparently selected the same order anyway.",
-        feed: "The Basement Bugle",
-        feedMeta: "Posted periodically in the offseason and weekly during the season.",
+        feed: "Introducing The Basement Bugle",
+        feedMeta: "",
         lead: {
           kicker: "Golf Desk",
           title: "The slot draft selected itself, which is not usually how drafts become useful",
