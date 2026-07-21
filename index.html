@@ -431,8 +431,13 @@
       left: 50%;
       top: 84px;
       z-index: 2;
-      width: min(220px, 58%);
+      width: min(620px, 82%);
       min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
       transform: translateX(-50%);
       border: 2px solid var(--ink);
       background:
@@ -446,7 +451,7 @@
     .paper-feed strong {
       display: block;
       font-family: var(--serif);
-      font-size: 25px;
+      font-size: 27px;
       line-height: 0.92;
       text-transform: uppercase;
       overflow-wrap: anywhere;
@@ -454,8 +459,8 @@
 
     .paper-feed span {
       display: block;
-      margin-top: 10px;
-      font-size: 13px;
+      margin-top: 0;
+      font-size: 15px;
       font-weight: 850;
       line-height: 1.18;
       text-transform: uppercase;
@@ -1155,18 +1160,19 @@
 
       .paper-feed {
         top: 47px;
-        width: min(278px, 72%);
+        width: min(306px, 82%);
         min-height: 166px;
+        gap: 10px;
         padding: 13px 12px;
       }
 
       .paper-feed strong {
-        font-size: 20px;
+        font-size: 22px;
       }
 
       .paper-feed span {
-        margin-top: 7px;
-        font-size: 13px;
+        margin-top: 0;
+        font-size: 15px;
         line-height: 1.12;
       }
 
