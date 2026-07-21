@@ -430,6 +430,7 @@
       position: absolute;
       left: 50%;
       top: 84px;
+      z-index: 2;
       width: min(220px, 58%);
       min-height: 150px;
       transform: translateX(-50%);
@@ -470,6 +471,7 @@
       left: 18px;
       right: 18px;
       bottom: 16px;
+      z-index: 1;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 8px;
@@ -1144,11 +1146,24 @@
       }
 
       .machine {
-        min-height: 230px;
+        min-height: 260px;
+      }
+
+      .paper-feed {
+        top: 56px;
+        width: min(278px, 72%);
+        min-height: 166px;
+        padding: 13px 12px;
       }
 
       .paper-feed strong {
         font-size: 20px;
+      }
+
+      .paper-feed span {
+        margin-top: 7px;
+        font-size: 10px;
+        line-height: 1.12;
       }
 
       .score-row > span:first-child {
@@ -1210,7 +1225,7 @@
               <div class="roller bottom"></div>
               <div class="paper-feed">
                 <strong id="feedHeadline">Introducing The Basement Bugle</strong>
-                <span id="feedMeta"></span>
+                <span id="feedMeta">Posted periodically in the offseason and weekly during the season.</span>
               </div>
               <div class="bulb-row">
                 <i class="bulb on"></i>
@@ -1324,7 +1339,7 @@
         headline: "Sefcik Wins The Golf Slot Machine And Somehow Makes The Obvious Take Longer",
         dek: "The BBA used The Open to set draft-slot priority, then held a slot draft that apparently selected the same order anyway.",
         feed: "Introducing The Basement Bugle",
-        feedMeta: "",
+        feedMeta: "Posted periodically in the offseason and weekly during the season.",
         lead: {
           kicker: "Golf Desk",
           title: "The slot draft selected itself, which is not usually how drafts become useful",
