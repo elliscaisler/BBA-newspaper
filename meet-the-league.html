@@ -114,20 +114,6 @@
       background: var(--paper-bright);
     }
 
-    .issue-meta a {
-      display: inline-block;
-      border: 2px solid var(--ink);
-      padding: 5px 8px;
-      background: var(--ink);
-      color: var(--paper-bright);
-      text-decoration: none;
-    }
-
-    .issue-meta a:hover,
-    .issue-meta a:focus-visible {
-      background: var(--red);
-    }
-
     .ticker {
       display: grid;
       grid-template-columns: auto minmax(0, 1fr);
@@ -252,13 +238,24 @@
       padding: 12px 18px 22px;
     }
 
+    .left-stack {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .edition-vault,
     .microfilm {
       border: 3px solid #090908;
       background: #151515;
       color: #fff4cf;
+    }
+
+    .microfilm {
       min-height: 440px;
     }
 
+    .edition-vault h2,
     .microfilm h2 {
       margin: 0;
       padding: 12px;
@@ -267,6 +264,68 @@
       font-family: var(--mono);
       font-size: 1rem;
       text-transform: uppercase;
+    }
+
+    .vault-list {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+    }
+
+    .vault-link {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 9px;
+      align-items: center;
+      min-height: 56px;
+      border: 1px solid rgba(255, 247, 223, 0.42);
+      border-radius: 4px;
+      background: #242424;
+      color: #fff4cf;
+      text-decoration: none;
+      padding: 8px;
+      font-weight: 850;
+    }
+
+    .vault-link::before {
+      content: "";
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 4px dotted #d9c386;
+      background: #111;
+    }
+
+    .vault-link:hover,
+    .vault-link:focus-visible,
+    .vault-link[aria-current="page"] {
+      background: var(--blue);
+      border-color: #f0c263;
+    }
+
+    .vault-link[aria-current="page"] {
+      background: var(--red);
+    }
+
+    .vault-link strong,
+    .vault-link small {
+      display: block;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      text-transform: uppercase;
+    }
+
+    .vault-link strong {
+      font-size: 1rem;
+      line-height: 1.05;
+    }
+
+    .vault-link small {
+      margin-top: 3px;
+      color: #dbc993;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      line-height: 1.1;
     }
 
     .reel-list {
@@ -446,8 +505,8 @@
           <strong>Underground Pressroom</strong>
         </div>
         <div class="issue-meta" aria-label="Issue metadata">
-          <a href="index.html">Back To First Edition</a>
           <span>Meet The League</span>
+          <span>League Cast Guide</span>
           <span>Discord Archive: 4,754 Msgs</span>
         </div>
       </header>
@@ -479,22 +538,36 @@
       </section>
 
       <section class="press-layout">
-        <aside class="microfilm" aria-label="Archive reels">
-          <h2>Microfilm Notes</h2>
-          <div class="reel-list">
-            <div class="reel">
-              <b>Primary Signal</b>
-              <span>Chat behavior, volume, channel mix, and recurring league functions.</span>
+        <aside class="left-stack" aria-label="Page navigation and archive notes">
+          <nav class="edition-vault" aria-label="Editions Vault">
+            <h2>Editions Vault</h2>
+            <div class="vault-list">
+              <a class="vault-link" href="meet-the-league.html" aria-current="page">
+                <span><strong>Meet the League</strong><small>League cast guide</small></span>
+              </a>
+              <a class="vault-link" href="index.html">
+                <span><strong>Offseason 1</strong><small>First Edition</small></span>
+              </a>
             </div>
-            <div class="reel">
-              <b>Roster Scope</b>
-              <span>Current league members only; former members are left out of the board.</span>
+          </nav>
+
+          <section class="microfilm" aria-label="Archive reels">
+            <h2>Microfilm Notes</h2>
+            <div class="reel-list">
+              <div class="reel">
+                <b>Primary Signal</b>
+                <span>Chat behavior, volume, channel mix, and recurring league functions.</span>
+              </div>
+              <div class="reel">
+                <b>Roster Scope</b>
+                <span>Current league members only; former members are left out of the board.</span>
+              </div>
+              <div class="reel">
+                <b>Copy Rule</b>
+                <span>Punchy enough for the paper, grounded enough to survive the group chat.</span>
+              </div>
             </div>
-            <div class="reel">
-              <b>Copy Rule</b>
-              <span>Punchy enough for the paper, grounded enough to survive the group chat.</span>
-            </div>
-          </div>
+          </section>
         </aside>
 
         <section class="dossier-grid" aria-label="Current league superlatives">
